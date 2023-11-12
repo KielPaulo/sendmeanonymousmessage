@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function App() {
-  const [text, setText] = useState('');
+  const [emailContent, setEmailContent] = useState('');
 
-  const handleTextAreaChange = (e) => {
-    setText(e.target.value);
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const handleLogButtonClick = () => {
-    console.log(text);
+    try {
+      const response = await axios.post('http://localhost:3001/sendEmail', { emailContent });
+      console.log(response.data); // Log success or error
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
     <div>
       <h1>Send me anonymous message</h1>
-      <textarea rows="4" cols="50" placeholder="Enter message here..." value={text} onChange={handleTextAreaChange} />
-      <br />
-      <button onClick={handleLogButtonClick}>Send</button>
+      <form onSubmit={handleSubmit}>
+        <textarea rows="4" cols="50" value={emailContent} onChange={(e) => setEmailContent(e.target.value)} />
+        <br />
+        <button type="submit">Send Email</button>
+      </form>
     </div>
   );
 }
