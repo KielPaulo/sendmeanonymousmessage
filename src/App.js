@@ -10,10 +10,10 @@ function App() {
 
     try {
       const response = await axios.post(API_URL, { emailContent });
-      console.log(response.data); // Log success or error
+      alert(response.data); // Log success or error
     } catch (error) {
       console.error(`Error connecting to ${API_URL}`);
-      console.error('Error:', error);
+      alert('Error:', error);
     }
   };
 
