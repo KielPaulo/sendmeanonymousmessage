@@ -18,13 +18,18 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="p-8">
       <h1>Send Pao an anonymous message</h1>
       <form onSubmit={handleSubmit}>
         <textarea rows="4" cols="50" value={emailContent} onChange={(e) => setEmailContent(e.target.value)} />
         <br />
         <button type="submit">Send</button>
       </form>
+      <br />
+      <p>
+        Medyo mabagal mag send, free hosting kasi. And pangit pa wala pa design, basta gumagana muna messaging function saka ko na lang
+        improve to bwahahahaha. Please do not spam din pala.
+      </p>
     </div>
   );
 }
