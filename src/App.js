@@ -3,25 +3,27 @@ import axios from 'axios';
 
 function App() {
   const [emailContent, setEmailContent] = useState('');
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/sendEmail', { emailContent });
+      const response = await axios.post(API_URL, { emailContent });
       console.log(response.data); // Log success or error
     } catch (error) {
+      console.error(`Error connecting to ${API_URL}`);
       console.error('Error:', error);
     }
   };
 
   return (
     <div>
-      <h1>Send me anonymous message</h1>
+      <h1>Send Pao an anonymous message</h1>
       <form onSubmit={handleSubmit}>
         <textarea rows="4" cols="50" value={emailContent} onChange={(e) => setEmailContent(e.target.value)} />
         <br />
-        <button type="submit">Send Email</button>
+        <button type="submit">Send</button>
       </form>
     </div>
   );
