@@ -3,10 +3,12 @@ import axios from 'axios';
 
 function App() {
   const [emailContent, setEmailContent] = useState('');
+  const [submitting, setSubmitting] = useState(false);
   const API_URL = process.env.REACT_APP_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitting(true);
 
     try {
       const response = await axios.post(API_URL, { emailContent });
@@ -14,6 +16,8 @@ function App() {
     } catch (error) {
       console.error(`Error connecting to ${API_URL}`);
       alert('Error:', error);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -23,7 +27,9 @@ function App() {
       <form onSubmit={handleSubmit}>
         <textarea rows="4" cols="50" value={emailContent} onChange={(e) => setEmailContent(e.target.value)} />
         <br />
-        <button type="submit">Send</button>
+        <button type="submit" disabled={submitting}>
+          {submitting ? 'Sending...' : 'Send'}
+        </button>
       </form>
       <br />
       <p>
