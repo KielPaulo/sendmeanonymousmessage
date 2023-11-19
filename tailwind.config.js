@@ -4,12 +4,16 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        blue: '#005bab' // Replace with your hex color value
+        blue: '#005bab',
+        blue2: '#00529a' // Replace with your hex color value
+      },
+      colors: {
+        accent: '#00529a'
       }
     }
   },
   plugins: [require('daisyui')],
   daisyui: {
-    themes: ['light', 'dracula']
+    themes: ['light', 'dark', 'coffee', 'dracula', 'luxury']
   }
 };

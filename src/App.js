@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import avatar from './images/facebook_1700059457031_7130566180867377246.jpg';
+import sendIcon from './images/send (2).svg';
 
 function App() {
   const [emailContent, setEmailContent] = useState('');
@@ -34,16 +35,16 @@ function App() {
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="p-4 md:p-8 max-w-md w-full relative">
-        <div class="avatar absolute top-1 left-20">
-          <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+        <div class="avatar absolute top-0 left-16">
+          <div class="w-24 rounded-full ring ring-accent ring-offset-base-100 ring-offset-2">
             <img src={avatar} alt="avatar" />
           </div>
         </div>
         <form onSubmit={handleSubmit} className="">
           <div className="flex flex-col">
-            <div className="w-full p-8 bg-blue text-center rounded-tr-xl rounded-tl-xl">Pao Ro</div>
-            <div className="w-full border-x border-b border-gray-300 p-8 bg-white text-gray-400 text-center">
-              Medyo mabagal mag-send, free hosting kasi hahaha. Please do not spam.
+            <div className="w-full p-8 bg-blue text-center text-white rounded-tr-xl rounded-tl-xl">Hi, I'm Pao</div>
+            <div className="w-full border-b border-x border-gray-300 p-8 bg-white text-gray-400 text-center">
+              This is my personal web app project. Medyo mabagal mag-send, free hosting kasi hahaha. Please do not spam.
             </div>
           </div>
           <div className="flex items-end bg-white border-b border-x border-gray-300 rounded-br-xl rounded-bl-xl p-2">
@@ -51,7 +52,7 @@ function App() {
               style={textareaStyles}
               className="textarea w-full resize-none focus:outline-none border-none bg-white caret-black"
               rows="1"
-              placeholder="Type your message here..."
+              placeholder="Send me anonymous message here..."
               value={emailContent}
               autoFocus={true}
               onChange={(e) => setEmailContent(e.target.value)}
@@ -60,10 +61,13 @@ function App() {
                 e.target.style.height = `${e.target.scrollHeight}px`;
               }}
             />
-            <button className="btn btn-primary" type="submit" disabled={submitting}>
+            <button className="p-2" type="submit" disabled={submitting}>
               <div className="flex items-center">
-                {submitting ? 'Sending' : 'Send'}
-                {submitting && <span className="loading loading-bars loading-sm ml-2"></span>}
+                {submitting ? (
+                  <span className="loading loading-bars loading-sm ml-2"></span>
+                ) : (
+                  <img src={sendIcon} alt="Send Message" className="hover:opacity-50 cursor-pointer fill-current" />
+                )}
               </div>
             </button>
           </div>
