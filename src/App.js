@@ -35,17 +35,20 @@ function App() {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="p-4 md:p-8 max-w-md w-full relative">
-        <div class="avatar absolute top-0 left-16">
-          <div class="w-24 rounded-full ring ring-accent ring-offset-base-100 ring-offset-2">
-            <img src={avatar} alt="avatar" />
-          </div>
-        </div>
+      <div className="p-4 md:p-8 max-w-md w-full">
         <form onSubmit={handleSubmit} className="">
           <div className="flex flex-col">
-            <div className="w-full p-8 bg-blue text-center text-white rounded-tr-xl rounded-tl-xl">Hi, I'm Pao</div>
+            <div className="w-full p-10 bg-blue rounded-tr-xl rounded-tl-xl relative">
+              <div class="avatar absolute bottom-4 left-8">
+                <div class="w-24 rounded-full ring ring-accent ring-offset-base-100 ring-offset-2">
+                  <img src={avatar} alt="avatar" />
+                </div>
+              </div>
+              <div className="absolute bottom-8 left-36 text-white">Hi, I'm Pao!</div>
+            </div>
             <div className="w-full border-b border-x border-gray-300 p-8 bg-white text-gray-400 text-center">
-              This is my personal web app project. Medyo mabagal mag-send, free hosting kasi hahaha. Please do not spam.
+              This is my personal web app project. It's a bit slow to send messages since I'm using free hosting XD. Please refrain from
+              spamming.
             </div>
           </div>
           <div className="flex items-end bg-white border-b border-x border-gray-300 rounded-br-xl rounded-bl-xl p-2">
