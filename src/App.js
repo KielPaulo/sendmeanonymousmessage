@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import avatar from './images/facebook_1700059457031_7130566180867377246.jpg';
 import sendIcon from './images/send (2).svg';
+import './App.css';
 
 function App() {
   const [emailContent, setEmailContent] = useState('');

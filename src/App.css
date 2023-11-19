@@ -25,3 +25,9 @@
     transform: rotate(360deg);
   }
 } */
+
+/* styles.css */
+
+body {
+  background-image: url('https://www.transparenttextures.com/patterns/groovepaper.png');
+}
