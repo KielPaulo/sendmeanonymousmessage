@@ -21,8 +21,8 @@ function App() {
         alert(response.data);
       }
     } catch (error) {
-      console.error(`Error connecting to ${API_URL}`);
-      alert('Error:', error);
+      console.error(`Error connecting to ${API_URL}`, error);
+      alert(error.response.data.errors[0].msg);
     } finally {
       setSubmitting(false);
     }
@@ -39,8 +39,8 @@ function App() {
         <form onSubmit={handleSubmit} className="">
           <div className="flex flex-col">
             <div className="w-full p-10 bg-blue rounded-tr-xl rounded-tl-xl relative">
-              <div class="avatar absolute bottom-4 left-8">
-                <div class="w-24 rounded-full ring ring-accent ring-offset-base-100 ring-offset-2">
+              <div className="avatar absolute bottom-4 left-8">
+                <div className="w-24 rounded-full ring ring-accent ring-offset-base-100 ring-offset-2">
                   <img src={avatar} alt="avatar" />
                 </div>
               </div>
